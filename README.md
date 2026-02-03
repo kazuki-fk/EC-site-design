@@ -9,4 +9,4 @@
 ![画面遷移図](./画面遷移図.png)
 
 ## ER
-![image](./image.png)
+![image](./ER.png)
