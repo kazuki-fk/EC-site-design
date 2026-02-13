@@ -42,8 +42,15 @@ public class Main {
         
         for (Product p : itemList) {
             p.showInfo();
-            totalValue += (p.getPrice() * p.getStock());
-          
+//            totalValue += (p.getPrice() * p.getStock());
+         // その商品の「在庫分すべて」の小計を出す
+            int subTotal = p.getPrice() * p.getStock();
+         // 小計に対する税込を計算
+            int subTotalTax = (int)(subTotal * 1.1);
+            
+            System.out.println("   └ 在庫分税込小計: " + subTotalTax + "円");
+            
+            totalValue += subTotal;
             
             // 在庫警告もここで行う（実用性アピール）
             if (p.getStock() <= 5) {
