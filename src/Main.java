@@ -28,6 +28,17 @@ public class Main {
 				System.out.println("　⚠️要補充：" + p.getName() + " の在庫が残りわずかです！");
 			}
 		}
+		// Main.java の最後の方に追加
+		System.out.println("\n--- 購入シミュレーション ---");
+		
+		// 例えばリストの0番目（スニーカー）を2個買ってみる
+		itemList.get(0).order(2);
+		
+		// もう一度一覧を表示して、在庫が減っているか確認
+		System.out.println("\n=== 更新後の在庫状況 ===");
+		for (Product p : itemList) {
+			p.showInfo();
+		}
 		// 4. 最後に合計を表示
 		System.out.println("--------------------");
 		System.out.println("全商品の在庫総額: " + totalValue + "円");

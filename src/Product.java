@@ -24,6 +24,15 @@ public class Product {
 		return stock;
 	}
 
+	public void order(int quantity) {
+		if (this.stock >= quantity) {
+			this.stock -= quantity; // 在庫を減らす
+			System.out.println(this.name + " を " + quantity + " 個注文しました。");
+		} else {
+			System.out.println("⚠️ エラー：" + this.name + " の在庫が足りません！");
+		}
+	}
+
 	// 値を「画面に表示」するための機能（既存のメソッド）
 	public void showInfo() {
 		System.out.println("商品名: " + name);
