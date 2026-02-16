@@ -47,31 +47,7 @@ public class Main {
 		System.out.println("\n=== 本日の最終在庫状況 ===");
 		int totalValue = 0;
 
-		// 2. 商品一覧の表示（番号付き）
-//		for (int i = 0; i < itemList.size(); i++) {
-//			System.out.print("[" + i + "] "); // インデックスを表示
-//			itemList.get(i).showInfo();
-//		}
-//
-//		// 3. ユーザーからの入力
-//		System.out.print("\n購入したい商品の番号を選択してください: ");
-//		int choice = scanner.nextInt();
-//
-//		System.out.print("購入個数を入力してください: ");
-//		int quantity = scanner.nextInt();
-//
-//		// 4. 購入処理の実行
-//		if (choice >= 0 && choice < itemList.size()) {
-//			// 選んだ番号の商品に対して注文メソッドを呼ぶ
-//			itemList.get(choice).order(quantity);
-//		} else {
-//			System.out.println("❌ 無効な番号です。");
-//		}
-//		System.out.println("\n--- 次の注文をどうぞ ---");
-//
-//		// 5. 最終的な在庫状況と在庫総額の表示
-//		System.out.println("\n=== 更新後の在庫状況（在庫総額の確認） ===");
-
+		
 		for (Product p : itemList) {
 			p.showInfo();
 
