@@ -2,10 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>ECサイト接続テスト</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EC Site | Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
-    <h1 th:text="${message}">ここにメッセージが出ます</h1>
-    <p style="font-size: 20px;">現在の在庫数: <strong th:text="${stock}">0</strong> 個</p>
+<body>
+
+    <div class="card">
+        <span class="status-badge">System Online</span>
+        <h1 th:text="${message}">Loading message...</h1>
+        
+        <div class="info-group">
+            <span class="label">Current Stock</span>
+            <span class="stock-value" th:text="${stock}">0</span>
+        </div>
+        
+        <div class="footer-note">
+            <p class="label">Product Variants Project</p>
+        </div>
+    </div>
+
 </body>
 </html>
