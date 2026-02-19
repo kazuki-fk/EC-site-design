@@ -9,8 +9,12 @@ public class EcController {
 
     @GetMapping("/")
     public String index(Model model) {
+     // メッセージをセット
         model.addAttribute("message", "JavaとHTMLの接続に成功しました！");
-        model.addAttribute("stock", 25); // ここがJavaで計算した在庫数になります
+        
+        // 在庫数をセット（ここを書き足せばOK！）
+        model.addAttribute("stock", 25);
+        
         return "index"; 
     }
 }
