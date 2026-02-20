@@ -10,10 +10,22 @@ public class EcController {
     @GetMapping("/")
     public String index(Model model) {
      // メッセージをセット
-        model.addAttribute("message", "JavaとHTMLの接続に成功しました！");
+    	Product vinyl = new Product("限定版アナログレコード", 5500);
+    	ProductVariant blackVariant = new ProductVariant("Black", "12inch", 15);
+        vinyl.addVariant(blackVariant);
+        vinyl.addVariant(new ProductVariant("Clear Blue", "12inch", 10));
         
-        // 在庫数をセット（ここを書き足せばOK！）
-        model.addAttribute("stock", 25);
+     // 2. カートを作成し、商品を1つ入れてみる（シミュレーション）
+        Cart myCart = new Cart();
+        // 「Black / 12inch」を 2枚 カートに入れる
+        CartItem item1 = new CartItem(vinyl, blackVariant, 2);
+        myCart.addItem(item1);
+        
+     // 3. モデルに登録
+        model.addAttribute("product", vinyl);
+        model.addAttribute("cart", myCart); // カート情報をHTMLへ
+        model.addAttribute("message", "お買い物をお楽しみください");
+          
         
         return "index"; 
     }

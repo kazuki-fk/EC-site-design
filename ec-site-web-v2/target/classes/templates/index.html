@@ -9,19 +9,28 @@
 </head>
 <body>
 
-    <div class="card">
-        <span class="status-badge">System Online</span>
-        <h1 th:text="${message}">Loading message...</h1>
-        
-        <div class="info-group">
-            <span class="label">Current Stock</span>
-            <span class="stock-value" th:text="${stock}">0</span>
-        </div>
-        
-        <div class="footer-note">
-            <p class="label">Product Variants Project</p>
-        </div>
-    </div>
-
+	<div class="card" style="margin-top: 20px; border-top: 4px solid #10b981;">
+	    <h2 style="font-size: 1.2rem; margin-bottom: 15px;">🛒 ショッピングカート</h2>
+	    
+	    <div th:if="${not #lists.isEmpty(cart.items)}">
+	        <div th:each="item : ${cart.items}" style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;">
+	            <span>
+	                <b th:text="${item.product.name}">商品名</b><br>
+	                <small th:text="|${item.variant.color} / ${item.variant.size} × ${item.quantity}|"></small>
+	            </span>
+	            <span th:text="|¥${#numbers.formatInteger(item.subTotal, 3, 'COMMA')}|">小計</span>
+	        </div>
+	        
+	        <hr style="border: 0; border-top: 1px dashed #ccc; margin: 15px 0;">
+	        
+	        <div style="text-align: right; font-weight: 600;">
+	            合計（税込）: <span style="font-size: 1.5rem; color: #10b981;" th:text="|¥${#numbers.formatInteger(cart.totalPrice, 3, 'COMMA')}|">0</span>
+	        </div>
+	    </div>
+	    
+	    <div th:if="${#lists.isEmpty(cart.items)}">
+	        <p>カートは空です。</p>
+	    </div>
+	</div>
 </body>
 </html>
